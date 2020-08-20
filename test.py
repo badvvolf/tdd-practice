@@ -1,17 +1,16 @@
 from core import TestCase, WasRun
 
 class TestCaseTest(TestCase):
-    def testRunning(self):
-        test = WasRun("testMethod")
-        assert(not test.wasRun)
+    def setUp(self):
+        self.test = WasRun("testMethod")
 
-        test.run()
-        assert(test.wasRun)
+    def testRunning(self):
+        self.test.run()
+        assert(self.test.wasRun)
 
     def testSetUp(self):
-        test = WasRun("testMethod")
-        test.run()
-        assert(test.wasSetUp)
+        self.test.run()
+        assert(self.test.wasSetUp)
 
 TestCaseTest("testRunning").run()
 TestCaseTest("testSetUp").run()
