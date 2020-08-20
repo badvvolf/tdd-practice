@@ -1,3 +1,4 @@
+from core import WasRun
 
 test = WasRun("testMethod")
 print(test.wasRun)
