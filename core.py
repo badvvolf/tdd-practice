@@ -10,9 +10,14 @@ class TestCase(object):
         method = getattr(self, self.name)
         method()
         self.tearDown()
+        return TestResult()
 
     def tearDown(self):
         pass
+
+class TestResult(object):
+    def summary(self):
+        return "1 run, 0 failed"
 
 class WasRun(TestCase):
     def __init__(self, name):
